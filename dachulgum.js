@@ -7,6 +7,7 @@
 	Copyright ⓒ 뎁온누리 2014-2015 all rights reserved
 */
 
+//ctx선언
 var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
 
 //path
@@ -112,26 +113,7 @@ function selectLevelHook()
 		{
 			try
 			{
-				window = new android.widget.PopupWindow();
-				var layout = new android.widget.RelativeLayout(ctx);
-				var shopBtn = new android.widget.Button(ctx);
-				shopBtn.setText("상점");
-				shopBtn.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, dip2px(20));
-				shopBtn.setLayoutParams(new android.widget.LinearLayout.LayoutParams(dip2px(60),dip2px(60)));
-				shopBtn.setPadding(-dip2px(8), -dip2px(8), -dip2px(8), -dip2px(8));
 
-				shopBtn.setOnClickListener(new android.view.View.OnClickListener({
-					onClick: function()
-					{
-						showShop();
-					}
-				}));
-				layout.addView(shopBtn);
-				window.setContentView(layout);
-				window.setWidth(android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT);
-				window.setHeight(android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT);
-				window.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
-				window.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.RIGHT | android.view.Gravity.BOTTOM,0,0);
 			}
 			catch(e)
 			{
@@ -141,7 +123,29 @@ function selectLevelHook()
 	}));
 }
 
-
+function shopDialog()
+{
+	window = new android.widget.PopupWindow();
+	var layout = new android.widget.RelativeLayout(ctx);
+	var shopBtn = new android.widget.Button(ctx);
+	shopBtn.setText("상점");
+	shopBtn.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, dip2px(20));
+	shopBtn.setLayoutParams(new android.widget.LinearLayout.LayoutParams(dip2px(60),dip2px(60)));
+	shopBtn.setPadding(-dip2px(8), -dip2px(8), -dip2px(8), -dip2px(8));
+	
+	shopBtn.setOnClickListener(new android.view.View.OnClickListener({
+		onClick: function()
+		{
+			showShop();
+		}
+	}));
+	layout.addView(shopBtn);
+	window.setContentView(layout);
+	window.setWidth(android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT);
+	window.setHeight(android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT);
+	window.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
+	window.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.RIGHT | android.view.Gravity.BOTTOM,0,0);
+}
 function leaveGame()
 {
 	if(window != null)
@@ -170,8 +174,8 @@ function modTick()
 }
 
 /*
-개인 함수가 집합되어있는 곳입니다.
-Now I will write Custom Functions. :)
+	개인 함수가 집합되어있는 곳입니다.
+	Now I will write Custom Functions. :)
 */
 
 //function by toonraon(toonraon@naver.com)
