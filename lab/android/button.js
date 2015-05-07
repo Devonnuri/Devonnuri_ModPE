@@ -5,13 +5,7 @@ var window = null;
 function dip2px(dips) {
     return parseInt(dips * ctx.getResources().getDisplayMetrics().density + 0.5);
 }
- 
-function toast(msg) {
-    ctx.runOnUiThread(new java.lang.Runnable({run: function(){
-        android.widget.Toast.makeText(ctx, msg, android.widget.Toast.LENGTH_LONG).show();
-    }}));
-}
- 
+
 function selectLevelHook()
 {
     ctx.runOnUiThread(new java.lang.Runnable(
@@ -23,16 +17,13 @@ function selectLevelHook()
                 window = new android.widget.PopupWindow();
                 var layout = new android.widget.RelativeLayout(ctx);
                 var shopBtn = new android.widget.Button(ctx);
-                shopBtn.setText("상점");
+                shopBtn.setText("Button");
                 shopBtn.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, dip2px(20));
                 shopBtn.setLayoutParams(new android.widget.LinearLayout.LayoutParams(dip2px(60),dip2px(60)));
                 shopBtn.setOnClickListener(new android.view.View.OnClickListener({
                     onClick: function()
                     {
-                        dialog.setTitle("상점");
-                        dialog.setMessage("안녕하세요 스크룸트입니다.");
-                        dialog.create();
-                        dialog.show();
+                    	print("You clicked the Button");
                     }
                 }));
                 layout.addView(shopBtn);
@@ -44,7 +35,7 @@ function selectLevelHook()
             }
             catch(e)
             {
-                toast("error"+e);
+                print(e);
             }
         }
     }));
@@ -71,25 +62,7 @@ function leaveGame()
         }));
     }
 }
- 
- 
-//function by toonraon(toonraon@naver.com)
-function toast(msg) {
-    ctx.runOnUiThread(new java.lang.Runnable({
-        run: function()
-        {
-            try
-            {
-                android.widget.Toast.makeText(ctx, msg.toString(), android.widget.Toast.LENGTH_SHORT).show();
-            }
-            catch(e)
-            {
-                print(e);
-            }
-        }
-    }));
-}
- 
+
 function dip2px(dips) {
     return parseInt(dips * ctx.getResources().getDisplayMetrics().density + 0.5);
 }
