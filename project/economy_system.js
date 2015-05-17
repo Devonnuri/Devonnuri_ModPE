@@ -1,4 +1,4 @@
-/* EconomySystem By Devonnuri ver 0.0.1.1
+/* EconomySystem By Devonnuri ver 0.0.1.2
   * Copyright Devonnuri 2015 All rights reserved
   */
 var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
@@ -12,12 +12,9 @@ function newLevel(){
 				var layout = new android.widget.RelativeLayout(ctx);
 				var moneyView = new android.widget.TextView(ctx);
 				moneyView.setText(money);
-				moneyView.TextSize(android.util.TypedValue.COMPLEX_UNIT_SP,5);
+				moneyView..setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, dip2px(15));
 				layout.addView(moneyView);
 				window.setContentView(layout);
-				window.setWidth(android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT);
-				window.setHeight(android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT);
-				window.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
 			}catch(e){
 				print(e);
 			}
