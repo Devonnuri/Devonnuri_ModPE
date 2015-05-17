@@ -1,4 +1,7 @@
-var ctx = com.mojang.minecraftpe.MainActivity,currentMainActivity.get();
+/* EconomySystem By Devonnuri ver 0.0.1.1
+  * Copyright Devonnuri 2015 All rights reserved
+  */
+var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
 var money = 0;
 
 function newLevel(){
