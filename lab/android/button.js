@@ -51,8 +51,8 @@ function leaveGame()
             {
                 try
                 {
-                    if(window != null) window.dismiss();
-                    window = null;
+                    window.dismiss();
+                    
                 }
                 catch(e)
                 {
